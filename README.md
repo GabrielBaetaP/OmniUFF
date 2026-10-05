@@ -26,7 +26,7 @@ Nenhuma. Não há `npm install` nem build: o frontend é só abrir os arquivos H
 ## Estrutura de pastas
 
 ```
-uff-dashboard-web/
+OmniUFF/
 ├── api.py
 ├── init_db.py
 ├── faculdade.db        (criado automaticamente se não existir)
