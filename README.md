@@ -27,10 +27,9 @@ Nenhuma. Não há `npm install` nem build: o frontend é só abrir os arquivos H
 
 ```
 uff-dashboard-web/
-├── backend/
-│   ├── api.py
-│   ├── init_db.py
-│   └── faculdade.db        (criado automaticamente se não existir)
+├── api.py
+├── init_db.py
+├── faculdade.db        (criado automaticamente se não existir)
 └── frontend/
     ├── index.html
     ├── ranking.html
