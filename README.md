@@ -1,4 +1,4 @@
-# Dashboard Acadêmico UFF
+# OmniUFF
 
 Backend em Python (FastAPI + SQLite) e frontend em HTML/CSS/JavaScript puro.
 
