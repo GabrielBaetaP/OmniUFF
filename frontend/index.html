@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Acadêmico UFF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="home.css?v=2">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Gestão UFF</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="inscritas.html">Inscritas</a>
+            <a href="planejamento.html">Planejamento</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="form-group">
+                <label for="alunoSelect">Selecione o Aluno:</label>
+                <select id="alunoSelect">
+                    <option value="">Carregando alunos...</option>
+                </select>
+            </div>
+
+            <a id="linkPerfil" class="link-perfil hidden" href="#">Ver perfil do aluno</a>
+
+            <div id="resumoProgresso" class="hidden">
+                <p><strong>Curso:</strong> <span id="infoCurso">-</span></p>
+                <p><strong>Horas:</strong> <span id="infoHoras">0</span>h concluídas</p>
+                <p class="horas-insc"><span id="infoHorasInsc">0</span>h em curso (inscritas)</p>
+                <div class="barra-progresso-fundo" title="Verde: concluído · Azul: concluído + inscritas">
+                    <div id="barraInscritas" class="barra-progresso-inscritas"></div>
+                    <div id="barraProgresso" class="barra-progresso-preenchimento"></div>
+                </div>
+                <p class="porcentagem">
+                    <span class="pct-verde"><span id="infoPorcentagem">0</span>%</span>
+                    <span class="pct-azul">→ <span id="infoPorcentagemInsc">0</span>% com inscritas</span>
+                </p>
+
+                <div class="req-box">
+                    <div>
+                        <div class="req-topo"><strong>Horas de extensão</strong><span id="extTexto">—</span></div>
+                        <div class="barra-mini"><div class="mini-insc" id="extBarraInsc"></div><div class="mini-ok" id="extBarra"></div></div>
+                        <p class="req-detalhe" id="extDetalhe"></p>
+                    </div>
+                    <div>
+                        <div class="req-topo"><strong>Horas complementares</strong><span id="compTexto">—</span></div>
+                        <div class="barra-mini"><div class="mini-ok" id="compBarra"></div></div>
+                        <p class="req-detalhe" id="compDetalhe"></p>
+                    </div>
+                    <a id="linkComplementares" class="req-link" href="#">Lançar atividades complementares →</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h1 id="tituloTela">Visão Geral</h1>
+            </header>
+            <div id="visaoGeral" class="visao-geral"><p class="msg-vazia">Carregando visão geral...</p></div>
+            <div id="gradeCurricular" class="grade-container hidden"></div>
+        </main>
+    </div>
+
+    <!-- Painel lateral direito (detalhes da disciplina) -->
+    <div id="painelDetalhes" class="detalhes-panel">
+        <button class="fechar-painel" id="btnFecharPainel">&times;</button>
+        <h2 id="detalheNome">Nome da Disciplina</h2>
+        <p class="detalhe-id" id="detalheId">ID</p>
+        <p class="reprovacoes-info" id="detalheReprovacoes"></p>
+
+        <div class="form-group hidden" id="grupoOptativa">
+            <label for="optativaSelect">Optativa cursada:</label>
+            <select id="optativaSelect"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="statusSelect">Estado atual:</label>
+            <select id="statusSelect">
+                <option value="Disponível">Disponível / Pendente</option>
+                <option value="Inscrito">Inscrito</option>
+                <option value="Concluída">Concluída</option>
+                <option value="Reprovado">Reprovado (registrar no histórico)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="inputNota">Nota final (opcional):</label>
+            <input type="number" id="inputNota" step="0.1" min="0" max="10">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPeriodoLetivo">Período letivo (ex: 2024.1):</label>
+            <input type="text" id="inputPeriodoLetivo" placeholder="2024.1">
+        </div>
+
+        <div class="form-group">
+            <label for="inputProfessor">Professor (opcional):</label>
+            <input type="text" id="inputProfessor">
+        </div>
+
+        <button id="btnSalvarDetalhes" class="btn-primary">Salvar informações</button>
+
+        <div class="prereqs-box">
+            <h3>Pré-requisitos</h3>
+            <ul id="listaPrereqs"></ul>
+            <p class="prereqs-legenda" id="legendaPrereqs"></p>
+        </div>
+    </div>
+
+    <script src="common.js?v=6"></script>
+    <script src="script.js?v=6"></script>
+</body>
+</html>

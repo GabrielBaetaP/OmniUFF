@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking - Gestão UFF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="admin.css?v=6">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Gestão UFF - Ranking</div>
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="inscritas.html">Inscritas</a>
+            <a href="planejamento.html">Planejamento</a>
+            <a href="ranking.html" class="active">Ranking</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="admin-content">
+            <div class="admin-card ranking-wrapper">
+                <h2>🏁 Classificação da Turma</h2>
+                <p class="rotulo-campo">Ranking por</p>
+                <div id="abasCriterio" class="tabs"></div>
+                <p id="descCriterio" class="dica"></p>
+                <p class="rotulo-campo">Curso</p>
+                <div id="abasCurso" class="tabs"></div>
+                <div id="tabelaRanking">
+                    <p class="msg-vazia">Carregando dados do ranking...</p>
+                </div>
+                <h3 class="lideres-titulo">👑 Líderes por categoria</h3>
+                <div id="lideres" class="lideres"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="common.js?v=6"></script>
+    <script src="ranking.js?v=6"></script>
+    <script>
+        // Se o ranking.js novo não foi copiado, avisa em vez de mostrar a tela antiga em silêncio
+        if (typeof CRITERIOS === 'undefined') {
+            document.getElementById('descCriterio').innerHTML =
+                '<span style="color:#fbbf24">⚠ O arquivo ranking.js está desatualizado: copie a versão nova para a pasta do frontend e recarregue com Ctrl+F5.</span>';
+        }
+    </script>
+</body>
+</html>

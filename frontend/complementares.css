@@ -1,0 +1,68 @@
+/* Abas do perfil */
+.abas-perfil { max-width: 1000px; margin: 0 auto 18px; }
+.abas-perfil .tabs { margin-bottom: 0; }
+
+/* Cartões de resumo (extensão / complementares) */
+.resumo-req .valor { font-size: 1.5rem; }
+.resumo-req .barra-mini { margin: 10px 0 6px; height: 10px; }
+.stat-card .meta-ok { color: #4ade80; }
+
+.tabela-simples { width: 100%; border-collapse: collapse; }
+.tabela-simples th {
+    text-align: left; font-size: 0.72rem; color: var(--text-muted); font-weight: 500;
+    padding: 6px 8px; border-bottom: 1px solid var(--border-color);
+}
+.tabela-simples td { padding: 9px 8px; font-size: 0.83rem; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+.tabela-simples .num { text-align: right; white-space: nowrap; }
+.tabela-simples .cod { font-size: 0.7rem; color: var(--text-muted); }
+.tabela-simples .sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+.badge-neutro { background-color: var(--bg-card-disponivel); color: var(--text-muted); }
+
+/* Formulário de nova atividade */
+.form-ac { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; align-items: end; }
+.form-ac .cheio { grid-column: 1 / -1; }
+.form-ac .form-group { margin: 0; }
+.form-ac input, .form-ac select { margin: 0; }
+.form-ac input[type="date"], .modal input[type="date"] {
+    width: 100%; padding: 10px; background-color: var(--bg-body); color: var(--text-main);
+    border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem; color-scheme: dark; outline: none;
+}
+.form-ac input[type="file"], .modal input[type="file"] { font-size: 0.8rem; color: var(--text-muted); width: 100%; }
+.ac-previa {
+    grid-column: 1 / -1; font-size: 0.82rem; line-height: 1.5; color: var(--text-muted);
+    background: var(--bg-body); border: 1px dashed var(--border-color); border-radius: 8px; padding: 10px 12px;
+}
+.ac-previa b { color: var(--accent-color); }
+.ac-previa .aviso { color: #fbbf24; }
+.form-ac .btn-primary { grid-column: 1 / -1; width: auto; justify-self: start; padding: 10px 22px; }
+
+/* Resumo por atividade */
+.ac-resumo { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.ac-linha { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) 150px; gap: 14px; align-items: center; }
+.ac-linha .nome { font-size: 0.83rem; font-weight: 500; }
+.ac-linha .regra { font-size: 0.72rem; color: var(--text-muted); }
+.ac-linha .valor-ac { font-size: 0.78rem; text-align: right; white-space: nowrap; }
+.ac-linha .valor-ac.cheio { color: #fbbf24; }
+.ac-linha .barra-mini { margin: 0; }
+.ac-linha .barra-mini .mini-ok.limite { background: #fbbf24; }
+.sep-secao { border-top: 1px solid var(--border-color); margin: 22px 0 16px; }
+.sub-titulo { font-size: 0.9rem; margin-bottom: 10px; }
+
+.acoes-linha { display: flex; gap: 6px; justify-content: flex-end; }
+.acoes-linha a, .acoes-linha button {
+    background: none; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 4px;
+    padding: 2px 8px; font-size: 0.78rem; cursor: pointer; text-decoration: none; line-height: 1.5;
+}
+.acoes-linha a:hover, .acoes-linha button.editar:hover { color: var(--accent-color); border-color: var(--accent-color); }
+.acoes-linha button.apagar:hover { color: #ef4444; border-color: #ef4444; }
+
+.modal .form-group { margin-bottom: 12px; }
+.modal .form-group select { margin: 0; }
+.modal .check-linha { margin: 4px 0 0; font-size: 0.8rem; }
+.modal .arquivo-atual { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
+
+@media (max-width: 700px) {
+    .form-ac { grid-template-columns: 1fr; }
+    .ac-linha { grid-template-columns: 1fr; gap: 4px; }
+    .ac-linha .valor-ac { text-align: left; }
+}

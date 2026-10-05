@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestão UFF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="admin.css?v=5">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Gestão UFF - Admin</div>
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="inscritas.html">Inscritas</a>
+            <a href="planejamento.html">Planejamento</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="admin.html" class="active">Admin</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar admin-menu">
+            <p class="menu-titulo">Configurações</p>
+            <button class="menu-item ativo" data-sec="alunos"><span class="menu-icone">👤</span>Alunos</button>
+            <button class="menu-item" data-sec="materias"><span class="menu-icone">📚</span>Matérias</button>
+            <button class="menu-item" data-sec="formacao"><span class="menu-icone">🎓</span>Formação</button>
+            <button class="menu-item" data-sec="conquistas"><span class="menu-icone">🏅</span>Conquistas</button>
+            <button class="menu-item" data-sec="backup"><span class="menu-icone">💾</span>Backup</button>
+            <button class="menu-item" data-sec="logs"><span class="menu-icone">📜</span>Logs</button>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-painel">
+
+                <!-- ===== ALUNOS ===== -->
+                <section id="sec-alunos" class="admin-secao">
+                    <header class="secao-cab">
+                        <h1>Alunos</h1>
+                        <p>Cadastre quem entra na turma ou remova quem saiu.</p>
+                    </header>
+
+                    <div class="sub-secao">
+                        <h3>Cadastrar aluno</h3>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="novoAlunoNome">Nome completo</label>
+                                <input type="text" id="novoAlunoNome" placeholder="Ex: Maria da Silva"></div>
+                            <div class="campo"><label for="novoAlunoCurso">Curso</label>
+                                <select id="novoAlunoCurso">
+                                    <option value="Ciência da Computação">Ciência da Computação</option>
+                                    <option value="Sistemas de Informação">Sistemas de Informação</option>
+                                </select></div>
+                        </div>
+                        <button id="btnCadastrarAluno" class="btn-primary btn-auto">Cadastrar aluno</button>
+                    </div>
+
+                    <div class="sub-secao">
+                        <h3>Excluir aluno</h3>
+                        <p class="dica">Apaga o aluno e todo o histórico dele (matérias, faltas, datas e atividades). Não dá para desfazer.</p>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="excluirAlunoSelect">Aluno</label>
+                                <select id="excluirAlunoSelect"></select></div>
+                        </div>
+                        <button id="btnExcluirAluno" class="btn-danger btn-auto">Excluir aluno e histórico</button>
+                    </div>
+                </section>
+
+                <!-- ===== MATÉRIAS ===== -->
+                <section id="sec-materias" class="admin-secao hidden">
+                    <header class="secao-cab">
+                        <h1>Matérias</h1>
+                        <p>Inclua matérias novas ou ajuste as que já existem.</p>
+                    </header>
+
+                    <div class="segmentado">
+                        <button class="seg-botao ativo" data-sub="cadastrar">Cadastrar matéria</button>
+                        <button class="seg-botao" data-sub="editar">Editar matéria</button>
+                    </div>
+
+                    <div id="sub-cadastrar" class="sub-secao sem-borda">
+                        <div class="linha-campos">
+                            <div class="campo"><label for="matId">Código</label>
+                                <input type="text" id="matId" placeholder="Ex: TCC00399"></div>
+                            <div class="campo larga"><label for="matNome">Nome da disciplina</label>
+                                <input type="text" id="matNome"></div>
+                        </div>
+                        <label class="check-linha"><input type="checkbox" id="matOptativa"> É optativa</label>
+                        <div class="linha-campos">
+                            <div class="campo" id="campoPeriodo"><label for="matPeriodo">Período</label>
+                                <input type="number" id="matPeriodo" min="1" max="12" placeholder="1"></div>
+                            <div class="campo"><label for="matHoras">Carga horária (h)</label>
+                                <input type="number" id="matHoras" min="1" placeholder="64"></div>
+                            <div class="campo"><label for="matExtensao">Horas de extensão</label>
+                                <input type="number" id="matExtensao" min="0" placeholder="0"></div>
+                            <div class="campo" id="campoCurso"><label for="matCurso">Curso</label>
+                                <select id="matCurso">
+                                    <option value="Ciência da Computação">Ciência da Computação</option>
+                                    <option value="Sistemas de Informação">Sistemas de Informação</option>
+                                </select></div>
+                        </div>
+                        <div id="matCursosOptativa" class="hidden">
+                            <div class="linha-campos">
+                                <div class="campo"><label for="matTipo">Tipo da optativa</label>
+                                    <select id="matTipo">
+                                        <option value="Tecnológica">Optativa Tecnológica</option>
+                                        <option value="Humanística">Optativa Humanística</option>
+                                    </select></div>
+                            </div>
+                            <p class="rotulo-campo">Cursos em que esta optativa pode ser usada</p>
+                            <label class="check-linha"><input type="checkbox" name="cursoOptativa" value="Ciência da Computação" checked> Ciência da Computação</label>
+                            <label class="check-linha"><input type="checkbox" name="cursoOptativa" value="Sistemas de Informação"> Sistemas de Informação</label>
+                        </div>
+                        <button id="btnCadastrarMateria" class="btn-primary btn-auto">Adicionar matéria</button>
+                    </div>
+
+                    <div id="sub-editar" class="sub-secao sem-borda hidden">
+                        <p class="dica">Altere os dados de uma matéria já cadastrada (inclusive as horas de extensão que ela vale).</p>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="editMateriaSelect">Matéria</label>
+                                <select id="editMateriaSelect"></select></div>
+                        </div>
+                        <div id="editMateriaForm" class="hidden">
+                            <div class="linha-campos">
+                                <div class="campo larga"><label for="editNome">Nome</label>
+                                    <input type="text" id="editNome"></div>
+                            </div>
+                            <div class="linha-campos">
+                                <div class="campo"><label for="editHoras">Carga horária (h)</label>
+                                    <input type="number" id="editHoras" min="1"></div>
+                                <div class="campo"><label for="editExtensao">Horas de extensão</label>
+                                    <input type="number" id="editExtensao" min="0"></div>
+                            </div>
+                            <div id="editCamposNormal" class="linha-campos">
+                                <div class="campo"><label for="editPeriodo">Período</label>
+                                    <input type="number" id="editPeriodo" min="1" max="12"></div>
+                                <div class="campo"><label for="editCurso">Curso</label>
+                                    <select id="editCurso">
+                                        <option value="Ciência da Computação">Ciência da Computação</option>
+                                        <option value="Sistemas de Informação">Sistemas de Informação</option>
+                                    </select></div>
+                            </div>
+                            <div id="editCamposOptativa" class="hidden">
+                                <div class="linha-campos">
+                                    <div class="campo"><label for="editTipo">Tipo da optativa</label>
+                                        <select id="editTipo">
+                                            <option value="Tecnológica">Optativa Tecnológica</option>
+                                            <option value="Humanística">Optativa Humanística</option>
+                                        </select></div>
+                                </div>
+                                <p class="rotulo-campo">Cursos em que esta optativa pode ser usada</p>
+                                <label class="check-linha"><input type="checkbox" name="editCursoOptativa" value="Ciência da Computação"> Ciência da Computação</label>
+                                <label class="check-linha"><input type="checkbox" name="editCursoOptativa" value="Sistemas de Informação"> Sistemas de Informação</label>
+                            </div>
+                            <button id="btnSalvarEdicaoMateria" class="btn-primary btn-auto">Salvar alterações</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== FORMAÇÃO ===== -->
+                <section id="sec-formacao" class="admin-secao hidden">
+                    <header class="secao-cab">
+                        <h1>Formação</h1>
+                        <p>Metas do curso e regras que mudam o cálculo do CR.</p>
+                    </header>
+
+                    <div class="sub-secao">
+                        <h3>Horas exigidas para formar</h3>
+                        <p class="dica">O quanto falta aparece no dashboard e no perfil de cada aluno.</p>
+                        <div id="listaRequisitos"><p class="msg-vazia">Carregando...</p></div>
+                    </div>
+
+                    <div class="sub-secao">
+                        <h3>Períodos especiais</h3>
+                        <p class="dica">Reprovações lançadas nesses períodos letivos não contam no CR (aprovações contam normalmente).</p>
+                        <div class="linha-campos">
+                            <div class="campo"><label for="novoPeriodoEspecial">Período letivo</label>
+                                <input type="text" id="novoPeriodoEspecial" placeholder="Ex: 2023.2"></div>
+                        </div>
+                        <button id="btnCadastrarPeriodo" class="btn-primary btn-auto">Cadastrar período especial</button>
+                        <div id="listaPeriodos" class="chips"></div>
+                    </div>
+                </section>
+
+                <!-- ===== CONQUISTAS ===== -->
+                <section id="sec-conquistas" class="admin-secao hidden">
+                    <header class="secao-cab">
+                        <h1>Conquistas</h1>
+                        <p>Crie e ajuste as conquistas do perfil dos alunos. Elas são calculadas sozinhas a partir do histórico: basta definir a regra.</p>
+                    </header>
+
+                    <div id="listaConquistas"><p class="msg-vazia">Carregando...</p></div>
+
+                    <div class="sub-secao">
+                        <h3 id="conqFormTitulo">Nova conquista</h3>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="conqNome">Nome</label>
+                                <input type="text" id="conqNome" placeholder="Ex: Mestre dos Compiladores"></div>
+                            <div class="campo pequena"><label for="conqIcone">Ícone</label>
+                                <input type="text" id="conqIcone" value="🏅" maxlength="4"></div>
+                            <div class="campo"><label for="conqCategoria">Categoria</label>
+                                <input type="text" id="conqCategoria" list="conqCategorias" placeholder="Ex: Desempenho"></div>
+                            <datalist id="conqCategorias"></datalist>
+                        </div>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="conqDescricao">Descrição</label>
+                                <input type="text" id="conqDescricao" placeholder="O que o aluno precisa fazer"></div>
+                        </div>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="conqMetrica">Regra (o que é medido)</label>
+                                <select id="conqMetrica"></select></div>
+                            <div class="campo hidden" id="campoConqParametro"><label for="conqParametro" id="rotuloConqParametro">Parâmetro</label>
+                                <input type="text" id="conqParametro"></div>
+                        </div>
+                        <p class="rotulo-campo">Metas por nível: preencha de 1 a 4, em ordem crescente (Bronze, Prata, Ouro, Diamante). Com uma meta só, a conquista vale de uma vez.</p>
+                        <div class="linha-campos metas-conquista">
+                            <div class="campo"><label for="conqMeta1">Meta 1 · Bronze</label><input type="number" id="conqMeta1" step="any" min="0"></div>
+                            <div class="campo"><label for="conqMeta2">Meta 2 · Prata</label><input type="number" id="conqMeta2" step="any" min="0"></div>
+                            <div class="campo"><label for="conqMeta3">Meta 3 · Ouro</label><input type="number" id="conqMeta3" step="any" min="0"></div>
+                            <div class="campo"><label for="conqMeta4">Meta 4 · Diamante</label><input type="number" id="conqMeta4" step="any" min="0"></div>
+                        </div>
+                        <label class="check-linha"><input type="checkbox" id="conqAtiva" checked> Ativa (aparece no perfil e conta pontos)</label>
+                        <div class="acoes-form">
+                            <button id="btnSalvarConquista" class="btn-primary btn-auto">Criar conquista</button>
+                            <button id="btnCancelarConquista" class="btn-neutro hidden">Cancelar edição</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== BACKUP ===== -->
+                <section id="sec-backup" class="admin-secao hidden">
+                    <header class="secao-cab">
+                        <h1>Backup</h1>
+                        <p>Leve seus dados para outro computador. A importação só acrescenta: nada existente é apagado ou sobrescrito.</p>
+                    </header>
+
+                    <div class="sub-secao">
+                        <h3>Exportar</h3>
+                        <p class="dica">Alunos, histórico, matérias e optativas em um arquivo .txt.</p>
+                        <label class="check-linha"><input type="checkbox" id="backupFotos"> Incluir fotos e comprovantes (PDF) no backup</label>
+                        <button id="btnBackupTodos" class="btn-primary btn-auto">Baixar backup de todos os alunos</button>
+                    </div>
+
+                    <div class="sub-secao">
+                        <h3>Importar</h3>
+                        <div class="linha-campos">
+                            <div class="campo larga"><label for="arquivoBackup">Arquivo de backup</label>
+                                <input type="file" id="arquivoBackup" accept=".txt,.json,text/plain"></div>
+                        </div>
+                        <button id="btnImportar" class="btn-primary btn-auto">Importar backup</button>
+                    </div>
+                </section>
+
+                <!-- ===== LOGS ===== -->
+                <section id="sec-logs" class="admin-secao hidden">
+                    <header class="secao-cab">
+                        <h1>Logs</h1>
+                        <p>As últimas ações feitas no sistema (zeram quando a API reinicia).</p>
+                    </header>
+                    <div id="logsContainer" class="logs-box logs-grande">
+                        <p class="msg-vazia">Carregando logs...</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="common.js?v=6"></script>
+    <script src="admin.js?v=6"></script>
+</body>
+</html>

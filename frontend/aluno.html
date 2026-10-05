@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Aluno - Gestão UFF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="admin.css?v=6">
+    <link rel="stylesheet" href="aluno.css?v=5">
+    <link rel="stylesheet" href="complementares.css?v=1">
+    <link rel="stylesheet" href="aluno_extras.css?v=2">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Gestão UFF - Aluno</div>
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="inscritas.html">Inscritas</a>
+            <a href="planejamento.html">Planejamento</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="admin-content">
+            <div class="abas-perfil">
+                <div class="tabs" id="abasPerfil">
+                    <button class="tab ativa" data-aba="resumo">Resumo</button>
+                    <button class="tab" data-aba="complementares">Extensão e complementares</button>                    
+                    <button class="tab" data-aba="simulador">Simulador de CR</button>
+                    <button class="tab" data-aba="formatura">Previsão de formatura</button>                    
+                    <button class="tab" data-aba="conquistas">Conquistas</button>    
+                </div>
+            </div>
+            <div id="perfil" class="perfil-wrapper" data-painel="resumo">
+                <p class="msg-vazia">Carregando perfil...</p>
+            </div>
+            <div id="extras" class="perfil-wrapper hidden" data-painel="complementares"></div>
+            <div id="painel-conquistas" class="perfil-wrapper hidden" data-painel="conquistas"></div>
+            <div id="painel-simulador" class="perfil-wrapper hidden" data-painel="simulador"></div>
+            <div id="painel-formatura" class="perfil-wrapper hidden" data-painel="formatura"></div>
+        </main>
+    </div>
+
+    <script src="common.js?v=6"></script>
+    <script src="aluno.js?v=6"></script>
+    <script src="complementares.js?v=2"></script>
+    <script src="aluno_extras.js?v=2"></script>
+</body>
+</html>

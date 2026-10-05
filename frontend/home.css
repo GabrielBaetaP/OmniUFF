@@ -1,0 +1,53 @@
+/* Tela inicial do dashboard (nenhum aluno selecionado) */
+.visao-geral { display: flex; flex-direction: column; gap: 32px; max-width: 1180px; padding: 12px 18px 56px; }
+.msg-vazia { color: var(--text-muted); font-size: 13px; }
+.msg-erro { color: #ef4444; font-size: 13px; }
+.home-sub { color: var(--text-muted); font-size: 0.9rem; margin: -18px 0 0; }
+
+.home-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px; }
+.home-stat { background: var(--bg-sidebar); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px 20px; }
+.home-stat span { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; }
+.home-stat b { font-size: 1.5rem; font-weight: 600; }
+.home-stat b.azul { color: var(--accent-color); }
+.home-stat b.alerta { color: #fbbf24; }
+
+.home-titulo { font-size: 1.05rem; font-weight: 600; margin: 0 0 16px; }
+
+.home-alunos { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+.aluno-card {
+    text-align: left; color: var(--text-main); font: inherit; cursor: pointer;
+    background: var(--bg-sidebar); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;
+    display: flex; flex-direction: column; gap: 16px; transition: border-color 0.15s, transform 0.15s;
+}
+.aluno-card:hover { border-color: var(--accent-color); transform: translateY(-2px); }
+.aluno-card-topo { display: flex; align-items: center; gap: 14px; }
+.aluno-card-topo .avatar { width: 44px; height: 44px; font-size: 0.95rem; }
+.aluno-card-topo strong { display: block; font-size: 0.92rem; line-height: 1.2; }
+.aluno-card-topo span { font-size: 0.72rem; color: var(--text-muted); }
+.aluno-card .barra-progresso-fundo { margin-top: 0; }
+.aluno-card-numeros { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-top: -8px; }
+.aluno-card-rodape { display: flex; justify-content: space-between; gap: 8px; font-size: 0.72rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 14px; flex-wrap: wrap; row-gap: 6px; }
+.aluno-card-rodape b { color: var(--text-main); }
+
+.home-duas { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.home-lista { display: flex; flex-direction: column; gap: 12px; }
+.home-item {
+    display: flex; align-items: center; gap: 16px; padding: 14px 16px;
+    background: var(--bg-sidebar); border: 1px solid var(--border-color); border-radius: 8px;
+}
+.home-dia { flex-shrink: 0; width: 44px; text-align: center; background: var(--bg-card-disponivel); border-radius: 6px; padding: 3px 0; }
+.home-dia b { display: block; font-size: 1.05rem; line-height: 1.1; }
+.home-dia span { font-size: 0.62rem; text-transform: uppercase; color: var(--text-muted); }
+.home-item-corpo { flex: 1; min-width: 0; }
+.home-item-titulo { font-size: 0.85rem; font-weight: 600; }
+.home-item-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+.home-quando { font-size: 0.72rem; font-weight: 600; color: var(--accent-color); white-space: nowrap; }
+.home-quando.urgente { color: #fbbf24; }
+.tag-tipo { display: inline-block; font-size: 0.62rem; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin-right: 6px; background: rgba(56, 189, 248, 0.15); color: var(--accent-color); }
+.tag-tipo.tipo-Prova { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.tag-tipo.tipo-Trabalho, .tag-tipo.tipo-Entrega { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+
+@media (max-width: 900px) { .home-duas { grid-template-columns: 1fr; } }
+
+/* a área de conteúdo da tela inicial ganha folga nas bordas */
+.content:has(.visao-geral:not(.hidden)) { padding: 22px 26px; }

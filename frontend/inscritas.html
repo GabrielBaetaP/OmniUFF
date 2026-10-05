@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matérias Inscritas - Gestão UFF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="admin.css?v=5">
+    <link rel="stylesheet" href="inscritas.css?v=2">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Gestão UFF - Inscritas</div>
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="inscritas.html" class="active">Inscritas</a>
+            <a href="planejamento.html">Planejamento</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="admin-content">
+            <div class="insc-wrapper">
+                <div class="admin-card insc-topo">
+                    <div class="form-group">
+                        <label for="alunoSelect">Aluno</label>
+                        <select id="alunoSelect"><option value="">Carregando alunos...</option></select>
+                    </div>
+                    <p class="dica">Faltas contadas em horas-aula: o limite é 25% da carga horária (ex.: 64h → 16 faltas). Passou disso, reprova por falta.</p>
+                </div>
+
+                <div id="conteudo"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="common.js?v=6"></script>
+    <script src="inscritas.js?v=2"></script>
+</body>
+</html>
